@@ -1,3 +1,5 @@
+<!-- property binding -->
+<img [src]="product.pImage" />
 <p>Name: {{ product.name }}</p>
 <p>Price: {{ "$" + product.price }}</p>
 <p>Color: {{ product.color }}</p>
@@ -8,3 +10,5 @@
 <p>
   {{ product.inStock > 0 ? "only " + product.inStock + " left" : "none left" }}
 </p>
+<button [disabled]="product.inStock < 1">Buy now</button>
+<input [value]="name" [attr.aria-hidden]="" />
