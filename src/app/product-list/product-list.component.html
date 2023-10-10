@@ -1,14 +1,22 @@
 <!-- property binding -->
-<img [src]="product.pImage" />
-<p>Name: {{ product.name }}</p>
-<p>Price: {{ "$" + product.price }}</p>
-<p>Color: {{ product.color }}</p>
-<p>
-  Discounted Price:
-  {{ getDiscountedPrice() }}
-</p>
-<p>
-  {{ product.inStock > 0 ? "only " + product.inStock + " left" : "none left" }}
-</p>
-<button [disabled]="product.inStock < 1">Buy now</button>
-<input [value]="name" [attr.aria-hidden]="" />
+<div class="ekart--product--container">
+  <img [src]="product.pImage" />
+  <p>Name: {{ product.name }}</p>
+  <p>Price: {{ "$" + product.price }}</p>
+  <p>Color: {{ product.color }}</p>
+  <p>
+    Discounted Price:
+    {{ getDiscountedPrice() }}
+  </p>
+  <p>
+    {{
+      product.inStock > 0 ? "only " + product.inStock + " left" : "none left"
+    }}
+  </p>
+  <button (click)="subtract()" [disabled]="addToCart === 0">-</button>
+  <span>{{ addToCart }}</span>
+  <button (click)="add()" [disabled]="addToCart === product.inStock">+</button>
+
+  <!-- <input [value]="name" (input)="onNameChange($event)" />
+  <p>name:{{ name }}</p> -->
+</div>
